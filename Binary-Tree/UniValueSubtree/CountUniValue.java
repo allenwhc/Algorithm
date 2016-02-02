@@ -51,7 +51,9 @@ public class CountUniValue{
 		boolean left=dfs(root.left,count);
 		boolean right=dfs(root.right,count);
 
-		if(left && right && (root.left==null || root.left.val==root.val) && (root.right==null || root.right.val==root.val)){
+		if(left && right && 
+		   (root.left==null || root.left.val==root.val) && 
+		   (root.right==null || root.right.val==root.val)){
 			count[0]++;
 			return true;
 		}
