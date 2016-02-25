@@ -6,7 +6,7 @@ public class MinStack{
 
 	public static void push(int x){
 		actualStack.push(x);
-		if(x<getMin()) minStack.push(x);
+		if(x<=getMin()) minStack.push(x);
 	}
 
 	public static void pop(){
