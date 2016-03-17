@@ -5,7 +5,7 @@ class Solution(object):
 		:type target: int
 		:rtype: List[str]
 		"""
-		result=[]
+		result,self.target=[],target
 		for i in range(1, len(num)+1):
 			curr_str=num[0:i]
 			curr_num=long(curr_str)
