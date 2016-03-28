@@ -1,10 +1,5 @@
 class Solution(object):
 	"""
-		Topological sort solution
-		Time complexity:
-		Extra space:
-	"""
-	"""
 		Breadth-first solution
 		Time complexity: O(nlogk), n is # of words, k is average length of words
 		Extra space: O(k)
