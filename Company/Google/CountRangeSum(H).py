@@ -39,9 +39,9 @@ class Tree(object):
 
 class Solution(object):
 	"""
-		Divide-and-conquer solution
+		Merge sort solution
 		Time complexity: O(nlogn), n is length of nums
-		Extra space:
+		Extra space: O(n)
 	"""
 	def countRangeSum(self, nums, lower, upper):
 		"""
