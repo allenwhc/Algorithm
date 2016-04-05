@@ -1,0 +1,31 @@
+import java.util.List;
+
+public class NestedInt implements NestedInteger {
+	public NestedInt(NestedInteger x) {
+	}
+
+	@Override
+	public boolean isInteger() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Integer getInteger() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<NestedInteger> getList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public NestedInteger convert(Object o) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
