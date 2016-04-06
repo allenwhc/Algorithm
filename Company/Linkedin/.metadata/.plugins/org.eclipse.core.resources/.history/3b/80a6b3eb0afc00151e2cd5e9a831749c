@@ -1,0 +1,48 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Codec implements SerializeDeserialize {
+	/*
+	 * Serialize uses queue implementation
+	 * Time complexity: O(h*2^(h-1)), h is height of binary tree
+	 * Extra space: O(2^(h-1))
+	 * @see SerializeDeserialize#serialize(TreeNode)
+	 */
+	public String serialize(TreeNode root) {
+		// TODO Auto-generated method stub
+		StringBuilder result=new StringBuilder("[");
+		Queue<TreeNode> curr_lv=new LinkedList<>();
+		boolean finished=false;
+		curr_lv.offer(root);
+		
+		while(!finished && !curr_lv.isEmpty()){
+			int size=curr_lv.size();
+			Queue<TreeNode> next_lv=new LinkedList<>();
+			for(int i=0; i<size; i++){
+				TreeNode node=curr_lv.poll();
+				if(node==null){
+					result.append("null").append(',');
+					continue;
+				}
+				result.append(node.val).append(',');
+				next_lv.offer(node.left);
+				next_lv.offer(node.right);
+				if(i==size-1 && node.left==null && node.right==null)
+					finished=true;
+			}
+			curr_lv=next_lv;
+		}
+		return result.deleteCharAt(result.length()-1).append(']').toString();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see SerializeDeserialize#deserialize(java.lang.String)
+	 */
+	public TreeNode deserialize(String data) {
+		// TODO Auto-generated method stub
+		System.out.println(data);
+		return new TreeNode(1);
+	}
+
+}
