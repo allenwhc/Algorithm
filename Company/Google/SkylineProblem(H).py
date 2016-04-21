@@ -25,12 +25,21 @@ class Solution:
 				else:
 					skyline.append([L,-turning_pts[0][0]])
 		return skyline
+	"""
+		Fenwick tree solution
+		Time complexity: O(nlogn)
+		Extra space: O(n)
+	"""
+	def getSkyline1(self, buildings):
+		buildings=sorted([b for b in buildings], key=lambda x: x[0])
+		pass
+		return buildings
 
 buildings=[[3,7,15], [2,9,10],  [5,12,12], [15,20,10], [19,24,8]]
 print "Building coordinates:",
 for b in buildings:
 	print b,
 sol=Solution()
-print "Building outlines"
-for o in sol.getSkyline(buildings):
+print '\nBuilding outlines:',
+for o in sol.getSkyline1(buildings):
 	print o,
