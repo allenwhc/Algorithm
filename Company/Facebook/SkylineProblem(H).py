@@ -1,4 +1,11 @@
 import heapq
+
+class Edge(object):
+	def __init__(self, x=0, y=float('inf'), isLeft=True):
+		self.x=x
+		self.y=y
+		self.left=isLeft
+
 class Solution(object):
 	"""
 		Divide-and-conquer solution
@@ -63,14 +70,40 @@ class Solution(object):
 	
 	"""
 		Heap solution
-		Time complexity: O()
-		Extra space: O()
+		Time complexity: O(nlogn)
+		Extra space: O(n)
 	"""
+
 	def getSkyline2(self, buildings):
-		return []
+		# @param buildings: List[List[int]]
+		# @return: List[List[int]]
+		edges=sorted(buildings+[[b[1],float('inf'),0] for b in buildings])
+		c_pts,res=[(0,float('inf'))],[]
+		for L,R,H in edges:
+			prev_height=c_pts[0][0]
+			while c_pts and c_pts[0][1]<=L: heapq.heappop(c_pts)
+			if H>0: heapq.heappush(c_pts,(-H,R))
+			curr_height=c_pts[0][0]
+			if prev_height!=curr_height:
+				if res and res[-1][0]==L: 
+					res[-1][-1]=-c_pts[0][0]
+				else: res.append([L,-curr_height])
+		return res
+
+	"""
+		Binary index tree solution
+		Time complexity: O(nlogn)
+		Extra space: O(n)
+	"""
+
+	def getSkyline3(self,buildings):
+		# @param buildings: List[List[int]]
+		# @return: List[List[int]]
+		pass
 
 buildings=[[2,9,10], [3,7,15], [5,12,12], [15,20,10], [19,24,8]]
 print buildings
 s=Solution()
 print 'skyline 1:',s.getSkyline1(buildings)
 print 'skyline 2:',s.getSkyline2(buildings)
+print 'skyline 3:',s.getSkyline3(buildings)
