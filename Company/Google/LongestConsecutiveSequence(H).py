@@ -18,11 +18,9 @@ class UnionFind(object):
 	def find(self, P):
 		if self.id[P]==P: return P
 		return self.find(self.id[P])
-		# while root.parent!=root: root=root.parent
-		# while self.id[P]!=P:
-		# 	#self.id[P]=self.id[self.id[P]]
-		# 	P=self.id[P]
-		# return P
+
+	def connected(self,P,Q):
+		return self.find(P)==self.find(Q)
 
 class Solution(object):
 	"""

@@ -46,11 +46,12 @@ class Solution(object):
 						else:
 							next_pos=I*n+J
 							uf.union(curr_pos,next_pos)
+							
 		for i,j in pos_O:
 			if not uf.connected(i*n+j,m*n-1): board[i][j]='X'
 		return
 
-	
+
 
 board1=[['X', 'X', 'X', 'X'],
 		['X', 'O', 'O', 'X'],
